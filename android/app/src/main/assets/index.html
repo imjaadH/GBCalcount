@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Calorie Counter</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+#tblCalCount {
+display: block;
+width: 99%;
+margin-left: 1%;
+}
+div#tblCalCount .cell > input[type="button"]:not([class]), div#tblCalCount form > input[type="button"]:not([class]) {
+padding: 3px 7px !important;
+min-width: 10%;
+max-width: 15%;
+font-size: 90%;
+margin-bottom: 0px !important;
+background-color: #2da0ce;
+color: #fff;
+cursor: pointer;
+-webkit-appearance: button;
+}
+div#tblCalCount .cell > input[type="button"]:hover, div#tblCalCount form > input[type="button"]:hover {
+background-color: #36aede;
+
+}
+select, input[type="text"] {
+min-width: 5%;
+font-size: 90%;
+height: 3% !important;
+}
+.timecalc {
+max-width: 98%;
+margin-bottom: 5px;
+margin-top: 5px;
+border: solid 2px #d8d8d8;
+}
+.timecalc .cell input[type="text"] {
+min-width: 10%;
+}
+div#tblCalCount .row {
+max-width: 100%;
+}
+div#tblCalCount .CalTotals form > input[type="text"], div#tblCalCount .rowDataCals > input[type="text"] {
+min-width: 5%;
+max-width: 10%;
+}
+.CalTotals input, .CalTotals select, .rowDataCals {
+display: inline;
+}
+form.Convert .cell {
+display: inline;
+padding: 1%;
+}
+form.Convert input[type="text"] {
+min-width: 3%;
+max-width: 8%;
+margin-top: 2px;
+margin-bottom: 2px;
+}
+.CalTotals select {
+min-width: 4% !important;
+max-width: 15% !important;
+}
+form.Convert .cell > input[type="button"]:not([class]) {
+width: 20%;
+padding: 3px;
+background-color: #2da0ce;
+color: #fff;
+cursor: pointer;
+}
+form.Convert .cell > input[type="button"]:hover {
+background-color: #36aede;
+}
+form.Convert .row {
+max-width: 100%;
+text-align: left;
+border: solid 1px #d8d8d8;
+line-height: 1.5;
+margin-bottom: 2px;
+}
+.TotalCounts {
+display: block;
+max-width: 98%;
+clear: both;
+margin-bottom: 2%;
+}
+.TotalCounts .row {
+display: table;
+width: 100%;
+padding-left: .5em;
+border: solid 1px #d8d8d8;
+}
+.TotalCounts .cell {
+float: left;
+min-width: 10%;
+line-height: 1.5;
+padding: 2px;
+}
+div.TotalCounts .Totals .cell > input[type="text"] {
+height: 1.75em;
+}
+div.TotalCounts .cell > input[type="button"]:not([class]) {
+background-color: #2da0ce;
+color: #fff;
+cursor: pointer;
+width: 20% !important;
+padding: 3px 5px !important;
+margin-bottom: 0px !important;
+}
+div.TotalCounts .cell > input[type="button"]:hover {
+background-color: #36aede;
+}
+.TotalCounts .row:nth-child(1) .cell:nth-child(2) {
+min-width: 30% !important;
+padding-right: 1em;
+}
+.TotalCounts .row:nth-child(6) .cell:nth-child(1) {
+min-width: 90%;
+
+}
+
+</style>
+</head>
+<body>
+<div class="one">
+<div id="tblCalCount">
+  <div class="row CalTotals">
+   <div class="cell">
+<form id="form_1">
+<input name="Weight" class="Weight" type="text" /><select name="WeightUnit"><option value="1">LBS</option></select> 
+ <select name="Activity"><option value="0">Activity</option><option value="2.65">Aerobic Dance (Casual)</option><option value="3">Aerobic Dance (Moderate)</option><option value="3.71">Aerobic Dance (Intense)</option><option value="2.7">Basketball (Full court)</option><option value="1.67">Basketball (Half court)</option><option value="2">Calisthenics</option><option value="7">Boot Camp Calisthenics</option><option value="1.6">Cycling (5.5 mph, 9 kmph)</option><option value="3">Cycling (10 mph, 16 kmph)</option><option value="4.26">Cycling (13 mph, 21 kmph)</option><option value="4.66">Cycling (Racing)</option><option value="2.62">Dancing (Casual)</option><option value="2.84">Dancing (Moderate)</option><option value="3.65">Dancing (Extreme)</option><option value="0.6">Driving</option><option value="3.7">Field Sports (Competitive)</option><option value="2.75">Frisbie</option><option value="2.37">Golf (Carry Clubs)</option><option value="2">Golf (with Cart)</option><option value="1.96">Gymnastics</option><option value="1.7">Housework</option><option value="4.6">Jump Rope (Fast)</option><option value="3.7">Jump Rope (Slow)</option><option value="0.6">Lying</option><option value="5.35">Martial Arts</option><option value="4.88">Racquetball</option><option value="3.6">Rollerblading (Casual)</option><option value="4.25">Rollerblading (Fast)</option><option value="4.91">Rowing Machine (Extreme)</option><option value="3.27">Rowing Machine (Moderate)</option><option value="2.92">Running (4 mph, 6.5 kmph)</option><option value="3.62">Running (5 mph, 8 kmph)</option><option value="4.8">Running (6 mph, 9.7 kmph)</option><option value="5.4">Running (7 mph, 11.3 kmph)</option><option value="6.3">Running (8 mph, 13 kmph)</option><option value="7.5">Running (10 mph, 16 kmph)</option><option value="7.9">Running (12 mph, 19.3 kmph)</option><option value="0.76">Sitting (Office work)</option><option value="0.6">Sitting (Quietly)</option><option value="0.3">Sleeping</option><option value="1.91">Softball</option><option value="3.71">Stair Step (6", 15.2 cm)</option><option value="4.09">Stair Step (8", 20.3 cm)</option><option value="4.42">Stair Step (10", 25.4 cm)</option><option value="4.91">Stair Step (12", 30.5 cm)</option><option value="0.98">Standing (Office work)</option><option value="0.76">Standing (Quietly)</option><option value="3">Swimming (Casual)</option><option value="10">Swimming (Vigorous)</option><option value="2.56">Tennis (Doubles)</option><option value="3">Tennis (Singles)</option><option value="1.39">Volleyball (Casual)</option><option value="3.98">Volleyball (Vigorous)</option><option value="1.4">Walking (2 mph, 3.2 kmph)</option><option value="1.75">Walking (2.5 mph, 4 kmph)</option><option value="2">Walking (3 mph, 4.8 kmph)</option><option value="2.3">Walking (3.5 mph, 5.6 kmph)</option><option value="2.67">Walking (4 mph, 6.5 kmph)</option><option value="3.1">Walking (4.5 mph, 7.2 kmph)</option><option value="1.0">Waxing Car</option><option value="3.2">Weight Training (Intense)</option><option value="2.35">Weight Training (Normal)</option><option value="3.4">Yardwork (Heavy)</option><option value="1.6">Yardwork (Regular)</option></select> 
+ <input class="Time" onchange="alltime(this.form)" id="time1" name="Time" type="text" /><select name="TimeUnit"><option value="60">Time</option></select>
+ <input onclick="calc(this.form);garcals()" type="button" value="Calculate" /><input name="Reset" type="reset" value="Reset" />
+<div class="rowDataCals"> <input class="Calories" name="Calories" type="text" /></div></form>
+     </div>
+   </div>
+  <div class="row CalTotals">
+   <div class="cell">
+<form id="form_2">
+<input name="Weight" class="Weight" type="text" /><select name="WeightUnit"><option value="1">LBS</option></select> 
+ <select name="Activity"><option value="0">Activity</option><option value="2.65">Aerobic Dance (Casual)</option><option value="3">Aerobic Dance (Moderate)</option><option value="3.71">Aerobic Dance (Intense)</option><option value="2.7">Basketball (Full court)</option><option value="1.67">Basketball (Half court)</option><option value="2">Calisthenics</option><option value="7">Boot Camp Calisthenics</option><option value="1.6">Cycling (5.5 mph, 9 kmph)</option><option value="3">Cycling (10 mph, 16 kmph)</option><option value="4.26">Cycling (13 mph, 21 kmph)</option><option value="4.66">Cycling (Racing)</option><option value="2.62">Dancing (Casual)</option><option value="2.84">Dancing (Moderate)</option><option value="3.65">Dancing (Extreme)</option><option value="0.6">Driving</option><option value="3.7">Field Sports (Competitive)</option><option value="2.75">Frisbie</option><option value="2.37">Golf (Carry Clubs)</option><option value="2">Golf (with Cart)</option><option value="1.96">Gymnastics</option><option value="1.7">Housework</option><option value="4.6">Jump Rope (Fast)</option><option value="3.7">Jump Rope (Slow)</option><option value="0.6">Lying</option><option value="5.35">Martial Arts</option><option value="4.88">Racquetball</option><option value="3.6">Rollerblading (Casual)</option><option value="4.25">Rollerblading (Fast)</option><option value="4.91">Rowing Machine (Extreme)</option><option value="3.27">Rowing Machine (Moderate)</option><option value="2.92">Running (4 mph, 6.5 kmph)</option><option value="3.62">Running (5 mph, 8 kmph)</option><option value="4.8">Running (6 mph, 9.7 kmph)</option><option value="5.4">Running (7 mph, 11.3 kmph)</option><option value="6.3">Running (8 mph, 13 kmph)</option><option value="7.5">Running (10 mph, 16 kmph)</option><option value="7.9">Running (12 mph, 19.3 kmph)</option><option value="0.76">Sitting (Office work)</option><option value="0.6">Sitting (Quietly)</option><option value="0.3">Sleeping</option><option value="1.91">Softball</option><option value="3.71">Stair Step (6", 15.2 cm)</option><option value="4.09">Stair Step (8", 20.3 cm)</option><option value="4.42">Stair Step (10", 25.4 cm)</option><option value="4.91">Stair Step (12", 30.5 cm)</option><option value="0.98">Standing (Office work)</option><option value="0.76">Standing (Quietly)</option><option value="3">Swimming (Casual)</option><option value="10">Swimming (Vigorous)</option><option value="2.56">Tennis (Doubles)</option><option value="3">Tennis (Singles)</option><option value="1.39">Volleyball (Casual)</option><option value="3.98">Volleyball (Vigorous)</option><option value="1.4">Walking (2 mph, 3.2 kmph)</option><option value="1.75">Walking (2.5 mph, 4 kmph)</option><option value="2">Walking (3 mph, 4.8 kmph)</option><option value="2.3">Walking (3.5 mph, 5.6 kmph)</option><option value="2.67">Walking (4 mph, 6.5 kmph)</option><option value="3.1">Walking (4.5 mph, 7.2 kmph)</option><option value="1.0">Waxing Car</option><option value="3.2">Weight Training (Intense)</option><option value="2.35">Weight Training (Normal)</option><option value="3.4">Yardwork (Heavy)</option><option value="1.6">Yardwork (Regular)</option></select> 
+<input class="Time" onchange="alltime(this.form)" id="time2" name="Time" type="text" /><select name="TimeUnit"><option value="60">Time</option></select>
+ <input onclick="calc(this.form);garcals()" type="button" value="Calculate" /><input name="Reset" type="reset" value="Reset" /> 
+<div class="rowDataCals"> <input class="Calories" name="Calories" type="text" /></div></form>
+   </div>
+  </div>
+  <div class="row  CalTotals">
+   <div class="cell">
+<form id="form_3">
+<input name="Weight" class="Weight" type="text" /><select name="WeightUnit"><option value="1">LBS</option></select> 
+ <select name="Activity"><option value="0">Activity</option><option value="2.65">Aerobic Dance (Casual)</option><option value="3">Aerobic Dance (Moderate)</option><option value="3.71">Aerobic Dance (Intense)</option><option value="2.7">Basketball (Full court)</option><option value="1.67">Basketball (Half court)</option><option value="2">Calisthenics</option><option value="7">Boot Camp Calisthenics</option><option value="1.6">Cycling (5.5 mph, 9 kmph)</option><option value="3">Cycling (10 mph, 16 kmph)</option><option value="4.26">Cycling (13 mph, 21 kmph)</option><option value="4.66">Cycling (Racing)</option><option value="2.62">Dancing (Casual)</option><option value="2.84">Dancing (Moderate)</option><option value="3.65">Dancing (Extreme)</option><option value="0.6">Driving</option><option value="3.7">Field Sports (Competitive)</option><option value="2.75">Frisbie</option><option value="2.37">Golf (Carry Clubs)</option><option value="2">Golf (with Cart)</option><option value="1.96">Gymnastics</option><option value="1.7">Housework</option><option value="4.6">Jump Rope (Fast)</option><option value="3.7">Jump Rope (Slow)</option><option value="0.6">Lying</option><option value="5.35">Martial Arts</option><option value="4.88">Racquetball</option><option value="3.6">Rollerblading (Casual)</option><option value="4.25">Rollerblading (Fast)</option><option value="4.91">Rowing Machine (Extreme)</option><option value="3.27">Rowing Machine (Moderate)</option><option value="2.92">Running (4 mph, 6.5 kmph)</option><option value="3.62">Running (5 mph, 8 kmph)</option><option value="4.8">Running (6 mph, 9.7 kmph)</option><option value="5.4">Running (7 mph, 11.3 kmph)</option><option value="6.3">Running (8 mph, 13 kmph)</option><option value="7.5">Running (10 mph, 16 kmph)</option><option value="7.9">Running (12 mph, 19.3 kmph)</option><option value="0.76">Sitting (Office work)</option><option value="0.6">Sitting (Quietly)</option><option value="0.3">Sleeping</option><option value="1.91">Softball</option><option value="3.71">Stair Step (6", 15.2 cm)</option><option value="4.09">Stair Step (8", 20.3 cm)</option><option value="4.42">Stair Step (10", 25.4 cm)</option><option value="4.91">Stair Step (12", 30.5 cm)</option><option value="0.98">Standing (Office work)</option><option value="0.76">Standing (Quietly)</option><option value="3">Swimming (Casual)</option><option value="10">Swimming (Vigorous)</option><option value="2.56">Tennis (Doubles)</option><option value="3">Tennis (Singles)</option><option value="1.39">Volleyball (Casual)</option><option value="3.98">Volleyball (Vigorous)</option><option value="1.4">Walking (2 mph, 3.2 kmph)</option><option value="1.75">Walking (2.5 mph, 4 kmph)</option><option value="2">Walking (3 mph, 4.8 kmph)</option><option value="2.3">Walking (3.5 mph, 5.6 kmph)</option><option value="2.67">Walking (4 mph, 6.5 kmph)</option><option value="3.1">Walking (4.5 mph, 7.2 kmph)</option><option value="1.0">Waxing Car</option><option value="3.2">Weight Training (Intense)</option><option value="2.35">Weight Training (Normal)</option><option value="3.4">Yardwork (Heavy)</option><option value="1.6">Yardwork (Regular)</option></select> 
+ <input class="Time" onchange="alltime(this.form)" id="time3" name="Time" type="text" /><select name="TimeUnit"><option value="60">Time</option></select>
+<input onclick="calc(this.form);garcals()" type="button" value="Calculate" /><input name="Reset" type="reset" value="Reset" /> 
+<div class="rowDataCals"> <input class="Calories" name="Calories" type="text" /></div></form>
+   </div>
+  </div>
+  <div class="row CalTotals">
+   <div class="cell">
+<form id="form_4">
+<input name="Weight" class="Weight" type="text" /><select name="WeightUnit"><option value="1">LBS</option></select> 
+ <select name="Activity"><option value="0">Activity</option><option value="2.65">Aerobic Dance (Casual)</option><option value="3">Aerobic Dance (Moderate)</option><option value="3.71">Aerobic Dance (Intense)</option><option value="2.7">Basketball (Full court)</option><option value="1.67">Basketball (Half court)</option><option value="2">Calisthenics</option><option value="7">Boot Camp Calisthenics</option><option value="1.6">Cycling (5.5 mph, 9 kmph)</option><option value="3">Cycling (10 mph, 16 kmph)</option><option value="4.26">Cycling (13 mph, 21 kmph)</option><option value="4.66">Cycling (Racing)</option><option value="2.62">Dancing (Casual)</option><option value="2.84">Dancing (Moderate)</option><option value="3.65">Dancing (Extreme)</option><option value="0.6">Driving</option><option value="3.7">Field Sports (Competitive)</option><option value="2.75">Frisbie</option><option value="2.37">Golf (Carry Clubs)</option><option value="2">Golf (with Cart)</option><option value="1.96">Gymnastics</option><option value="1.7">Housework</option><option value="4.6">Jump Rope (Fast)</option><option value="3.7">Jump Rope (Slow)</option><option value="0.6">Lying</option><option value="5.35">Martial Arts</option><option value="4.88">Racquetball</option><option value="3.6">Rollerblading (Casual)</option><option value="4.25">Rollerblading (Fast)</option><option value="4.91">Rowing Machine (Extreme)</option><option value="3.27">Rowing Machine (Moderate)</option><option value="2.92">Running (4 mph, 6.5 kmph)</option><option value="3.62">Running (5 mph, 8 kmph)</option><option value="4.8">Running (6 mph, 9.7 kmph)</option><option value="5.4">Running (7 mph, 11.3 kmph)</option><option value="6.3">Running (8 mph, 13 kmph)</option><option value="7.5">Running (10 mph, 16 kmph)</option><option value="7.9">Running (12 mph, 19.3 kmph)</option><option value="0.76">Sitting (Office work)</option><option value="0.6">Sitting (Quietly)</option><option value="0.3">Sleeping</option><option value="1.91">Softball</option><option value="3.71">Stair Step (6", 15.2 cm)</option><option value="4.09">Stair Step (8", 20.3 cm)</option><option value="4.42">Stair Step (10", 25.4 cm)</option><option value="4.91">Stair Step (12", 30.5 cm)</option><option value="0.98">Standing (Office work)</option><option value="0.76">Standing (Quietly)</option><option value="3">Swimming (Casual)</option><option value="10">Swimming (Vigorous)</option><option value="2.56">Tennis (Doubles)</option><option value="3">Tennis (Singles)</option><option value="1.39">Volleyball (Casual)</option><option value="3.98">Volleyball (Vigorous)</option><option value="1.4">Walking (2 mph, 3.2 kmph)</option><option value="1.75">Walking (2.5 mph, 4 kmph)</option><option value="2">Walking (3 mph, 4.8 kmph)</option><option value="2.3">Walking (3.5 mph, 5.6 kmph)</option><option value="2.67">Walking (4 mph, 6.5 kmph)</option><option value="3.1">Walking (4.5 mph, 7.2 kmph)</option><option value="1.0">Waxing Car</option><option value="3.2">Weight Training (Intense)</option><option value="2.35">Weight Training (Normal)</option><option value="3.4">Yardwork (Heavy)</option><option value="1.6">Yardwork (Regular)</option></select> 
+ <input class="Time" onchange="alltime(this.form)" type="text" id="time4" name="Time" /><select name="TimeUnit"><option value="60">Time</option></select> 
+ <input onclick="calc(this.form);garcals()" type="button" value="Calculate" /><input name="Reset" type="reset" value="Reset" /> 
+<div class="rowDataCals"> <input class="Calories" name="Calories" type="text" /></div></form>
+   </div>
+  </div>
+  <div class="row CalTotals">
+   <div class="cell">
+<form id="form_5">
+<input name="Weight" class="Weight" type="text" /><select name="WeightUnit"><option value="1">LBS</option></select> 
+ <select name="Activity"><option value="0">Activity</option><option value="2.65">Aerobic Dance (Casual)</option><option value="3">Aerobic Dance (Moderate)</option><option value="3.71">Aerobic Dance (Intense)</option><option value="2.7">Basketball (Full court)</option><option value="1.67">Basketball (Half court)</option><option value="2">Calisthenics</option><option value="7">Boot Camp Calisthenics</option><option value="1.6">Cycling (5.5 mph, 9 kmph)</option><option value="3">Cycling (10 mph, 16 kmph)</option><option value="4.26">Cycling (13 mph, 21 kmph)</option><option value="4.66">Cycling (Racing)</option><option value="2.62">Dancing (Casual)</option><option value="2.84">Dancing (Moderate)</option><option value="3.65">Dancing (Extreme)</option><option value="0.6">Driving</option><option value="3.7">Field Sports (Competitive)</option><option value="2.75">Frisbie</option><option value="2.37">Golf (Carry Clubs)</option><option value="2">Golf (with Cart)</option><option value="1.96">Gymnastics</option><option value="1.7">Housework</option><option value="4.6">Jump Rope (Fast)</option><option value="3.7">Jump Rope (Slow)</option><option value="0.6">Lying</option><option value="5.35">Martial Arts</option><option value="4.88">Racquetball</option><option value="3.6">Rollerblading (Casual)</option><option value="4.25">Rollerblading (Fast)</option><option value="4.91">Rowing Machine (Extreme)</option><option value="3.27">Rowing Machine (Moderate)</option><option value="2.92">Running (4 mph, 6.5 kmph)</option><option value="3.62">Running (5 mph, 8 kmph)</option><option value="4.8">Running (6 mph, 9.7 kmph)</option><option value="5.4">Running (7 mph, 11.3 kmph)</option><option value="6.3">Running (8 mph, 13 kmph)</option><option value="7.5">Running (10 mph, 16 kmph)</option><option value="7.9">Running (12 mph, 19.3 kmph)</option><option value="0.76">Sitting (Office work)</option><option value="0.6">Sitting (Quietly)</option><option value="0.3">Sleeping</option><option value="1.91">Softball</option><option value="3.71">Stair Step (6", 15.2 cm)</option><option value="4.09">Stair Step (8", 20.3 cm)</option><option value="4.42">Stair Step (10", 25.4 cm)</option><option value="4.91">Stair Step (12", 30.5 cm)</option><option value="0.98">Standing (Office work)</option><option value="0.76">Standing (Quietly)</option><option value="3">Swimming (Casual)</option><option value="10">Swimming (Vigorous)</option><option value="2.56">Tennis (Doubles)</option><option value="3">Tennis (Singles)</option><option value="1.39">Volleyball (Casual)</option><option value="3.98">Volleyball (Vigorous)</option><option value="1.4">Walking (2 mph, 3.2 kmph)</option><option value="1.75">Walking (2.5 mph, 4 kmph)</option><option value="2">Walking (3 mph, 4.8 kmph)</option><option value="2.3">Walking (3.5 mph, 5.6 kmph)</option><option value="2.67">Walking (4 mph, 6.5 kmph)</option><option value="3.1">Walking (4.5 mph, 7.2 kmph)</option><option value="1.0">Waxing Car</option><option value="3.2">Weight Training (Intense)</option><option value="2.35">Weight Training (Normal)</option><option value="3.4">Yardwork (Heavy)</option><option value="1.6">Yardwork (Regular)</option></select> 
+ <input class="Time" onchange="alltime(this.form)" id="time5" name="Time" type="text" /><select name="TimeUnit"><option value="60">Time</option></select>
+<input onclick="calc(this.form);garcals()" type="button" value="Calculate" /><input name="Reset" type="reset" value="Reset" /> 
+<div class="rowDataCals"> <input class="Calories" name="Calories" type="text" /></div></form>
+   </div>
+  </div>
+  <div class="row CalTotals">
+   <div class="cell">
+<form id="form_6">
+<input name="Weight" class="Weight" type="text" /><select name="WeightUnit"><option value="1">LBS</option></select> 
+ <select name="Activity"><option value="0">Activity</option><option value="2.65">Aerobic Dance (Casual)</option><option value="3">Aerobic Dance (Moderate)</option><option value="3.71">Aerobic Dance (Intense)</option><option value="2.7">Basketball (Full court)</option><option value="1.67">Basketball (Half court)</option><option value="2">Calisthenics</option><option value="7">Boot Camp Calisthenics</option><option value="1.6">Cycling (5.5 mph, 9 kmph)</option><option value="3">Cycling (10 mph, 16 kmph)</option><option value="4.26">Cycling (13 mph, 21 kmph)</option><option value="4.66">Cycling (Racing)</option><option value="2.62">Dancing (Casual)</option><option value="2.84">Dancing (Moderate)</option><option value="3.65">Dancing (Extreme)</option><option value="0.6">Driving</option><option value="3.7">Field Sports (Competitive)</option><option value="2.75">Frisbie</option><option value="2.37">Golf (Carry Clubs)</option><option value="2">Golf (with Cart)</option><option value="1.96">Gymnastics</option><option value="1.7">Housework</option><option value="4.6">Jump Rope (Fast)</option><option value="3.7">Jump Rope (Slow)</option><option value="0.6">Lying</option><option value="5.35">Martial Arts</option><option value="4.88">Racquetball</option><option value="3.6">Rollerblading (Casual)</option><option value="4.25">Rollerblading (Fast)</option><option value="4.91">Rowing Machine (Extreme)</option><option value="3.27">Rowing Machine (Moderate)</option><option value="2.92">Running (4 mph, 6.5 kmph)</option><option value="3.62">Running (5 mph, 8 kmph)</option><option value="4.8">Running (6 mph, 9.7 kmph)</option><option value="5.4">Running (7 mph, 11.3 kmph)</option><option value="6.3">Running (8 mph, 13 kmph)</option><option value="7.5">Running (10 mph, 16 kmph)</option><option value="7.9">Running (12 mph, 19.3 kmph)</option><option value="0.76">Sitting (Office work)</option><option value="0.6">Sitting (Quietly)</option><option value="0.3">Sleeping</option><option value="1.91">Softball</option><option value="3.71">Stair Step (6", 15.2 cm)</option><option value="4.09">Stair Step (8", 20.3 cm)</option><option value="4.42">Stair Step (10", 25.4 cm)</option><option value="4.91">Stair Step (12", 30.5 cm)</option><option value="0.98">Standing (Office work)</option><option value="0.76">Standing (Quietly)</option><option value="3">Swimming (Casual)</option><option value="10">Swimming (Vigorous)</option><option value="2.56">Tennis (Doubles)</option><option value="3">Tennis (Singles)</option><option value="1.39">Volleyball (Casual)</option><option value="3.98">Volleyball (Vigorous)</option><option value="1.4">Walking (2 mph, 3.2 kmph)</option><option value="1.75">Walking (2.5 mph, 4 kmph)</option><option value="2">Walking (3 mph, 4.8 kmph)</option><option value="2.3">Walking (3.5 mph, 5.6 kmph)</option><option value="2.67">Walking (4 mph, 6.5 kmph)</option><option value="3.1">Walking (4.5 mph, 7.2 kmph)</option><option value="1.0">Waxing Car</option><option value="3.2">Weight Training (Intense)</option><option value="2.35">Weight Training (Normal)</option><option value="3.4">Yardwork (Heavy)</option><option value="1.6">Yardwork (Regular)</option></select> 
+ <input class="Time" onchange="alltime(this.form)" id="time6" name="Time" type="text" /><select name="TimeUnit"><option value="60">Time</option></select>
+ <input onclick="calc(this.form);garcals()" type="button" value="Calculate" /><input name="Reset" type="reset" value="Reset" /> 
+<div class="rowDataCals"> <input class="Calories" name="Calories" type="text" /></div></form>
+   </div>
+  </div>
+  <div class="row CalTotals">
+   <div class="cell">
+<form id="form_7">
+<input name="Weight" class="Weight" type="text" /><select name="WeightUnit"><option value="1">LBS</option></select> 
+ <select name="Activity"><option value="0">Activity</option><option value="2.65">Aerobic Dance (Casual)</option><option value="3">Aerobic Dance (Moderate)</option><option value="3.71">Aerobic Dance (Intense)</option><option value="2.7">Basketball (Full court)</option><option value="1.67">Basketball (Half court)</option><option value="2">Calisthenics</option><option value="7">Boot Camp Calisthenics</option><option value="1.6">Cycling (5.5 mph, 9 kmph)</option><option value="3">Cycling (10 mph, 16 kmph)</option><option value="4.26">Cycling (13 mph, 21 kmph)</option><option value="4.66">Cycling (Racing)</option><option value="2.62">Dancing (Casual)</option><option value="2.84">Dancing (Moderate)</option><option value="3.65">Dancing (Extreme)</option><option value="0.6">Driving</option><option value="3.7">Field Sports (Competitive)</option><option value="2.75">Frisbie</option><option value="2.37">Golf (Carry Clubs)</option><option value="2">Golf (with Cart)</option><option value="1.96">Gymnastics</option><option value="1.7">Housework</option><option value="4.6">Jump Rope (Fast)</option><option value="3.7">Jump Rope (Slow)</option><option value="0.6">Lying</option><option value="5.35">Martial Arts</option><option value="4.88">Racquetball</option><option value="3.6">Rollerblading (Casual)</option><option value="4.25">Rollerblading (Fast)</option><option value="4.91">Rowing Machine (Extreme)</option><option value="3.27">Rowing Machine (Moderate)</option><option value="2.92">Running (4 mph, 6.5 kmph)</option><option value="3.62">Running (5 mph, 8 kmph)</option><option value="4.8">Running (6 mph, 9.7 kmph)</option><option value="5.4">Running (7 mph, 11.3 kmph)</option><option value="6.3">Running (8 mph, 13 kmph)</option><option value="7.5">Running (10 mph, 16 kmph)</option><option value="7.9">Running (12 mph, 19.3 kmph)</option><option value="0.76">Sitting (Office work)</option><option value="0.6">Sitting (Quietly)</option><option value="0.3">Sleeping</option><option value="1.91">Softball</option><option value="3.71">Stair Step (6", 15.2 cm)</option><option value="4.09">Stair Step (8", 20.3 cm)</option><option value="4.42">Stair Step (10", 25.4 cm)</option><option value="4.91">Stair Step (12", 30.5 cm)</option><option value="0.98">Standing (Office work)</option><option value="0.76">Standing (Quietly)</option><option value="3">Swimming (Casual)</option><option value="10">Swimming (Vigorous)</option><option value="2.56">Tennis (Doubles)</option><option value="3">Tennis (Singles)</option><option value="1.39">Volleyball (Casual)</option><option value="3.98">Volleyball (Vigorous)</option><option value="1.4">Walking (2 mph, 3.2 kmph)</option><option value="1.75">Walking (2.5 mph, 4 kmph)</option><option value="2">Walking (3 mph, 4.8 kmph)</option><option value="2.3">Walking (3.5 mph, 5.6 kmph)</option><option value="2.67">Walking (4 mph, 6.5 kmph)</option><option value="3.1">Walking (4.5 mph, 7.2 kmph)</option><option value="1.0">Waxing Car</option><option value="3.2">Weight Training (Intense)</option><option value="2.35">Weight Training (Normal)</option><option value="3.4">Yardwork (Heavy)</option><option value="1.6">Yardwork (Regular)</option></select> 
+ <input class="Time" onchange="alltime(this.form)" type="text" id="time7" name="Time" /><select name="TimeUnit"><option value="60">Time</option></select> 
+ <input onclick="calc(this.form);garcals()" type="button" value="Calculate" /><input name="Reset" type="reset" value="Reset" /> 
+<div class="rowDataCals"> <input class="Calories" name="Calories" type="text" /></div></form>
+   </div>
+  </div>
+  <div class="row CalTotals">
+   <div class="cell">
+<form id="form_8">
+<input name="Weight" class="Weight" type="text" /><select name="WeightUnit"><option value="1">LBS</option></select> 
+ <select name="Activity"><option value="0">Activity</option><option value="2.65">Aerobic Dance (Casual)</option><option value="3">Aerobic Dance (Moderate)</option><option value="3.71">Aerobic Dance (Intense)</option><option value="2.7">Basketball (Full court)</option><option value="1.67">Basketball (Half court)</option><option value="2">Calisthenics</option><option value="7">Boot Camp Calisthenics</option><option value="1.6">Cycling (5.5 mph, 9 kmph)</option><option value="3">Cycling (10 mph, 16 kmph)</option><option value="4.26">Cycling (13 mph, 21 kmph)</option><option value="4.66">Cycling (Racing)</option><option value="2.62">Dancing (Casual)</option><option value="2.84">Dancing (Moderate)</option><option value="3.65">Dancing (Extreme)</option><option value="0.6">Driving</option><option value="3.7">Field Sports (Competitive)</option><option value="2.75">Frisbie</option><option value="2.37">Golf (Carry Clubs)</option><option value="2">Golf (with Cart)</option><option value="1.96">Gymnastics</option><option value="1.7">Housework</option><option value="4.6">Jump Rope (Fast)</option><option value="3.7">Jump Rope (Slow)</option><option value="0.6">Lying</option><option value="5.35">Martial Arts</option><option value="4.88">Racquetball</option><option value="3.6">Rollerblading (Casual)</option><option value="4.25">Rollerblading (Fast)</option><option value="4.91">Rowing Machine (Extreme)</option><option value="3.27">Rowing Machine (Moderate)</option><option value="2.92">Running (4 mph, 6.5 kmph)</option><option value="3.62">Running (5 mph, 8 kmph)</option><option value="4.8">Running (6 mph, 9.7 kmph)</option><option value="5.4">Running (7 mph, 11.3 kmph)</option><option value="6.3">Running (8 mph, 13 kmph)</option><option value="7.5">Running (10 mph, 16 kmph)</option><option value="7.9">Running (12 mph, 19.3 kmph)</option><option value="0.76">Sitting (Office work)</option><option value="0.6">Sitting (Quietly)</option><option value="0.3">Sleeping</option><option value="1.91">Softball</option><option value="3.71">Stair Step (6", 15.2 cm)</option><option value="4.09">Stair Step (8", 20.3 cm)</option><option value="4.42">Stair Step (10", 25.4 cm)</option><option value="4.91">Stair Step (12", 30.5 cm)</option><option value="0.98">Standing (Office work)</option><option value="0.76">Standing (Quietly)</option><option value="3">Swimming (Casual)</option><option value="10">Swimming (Vigorous)</option><option value="2.56">Tennis (Doubles)</option><option value="3">Tennis (Singles)</option><option value="1.39">Volleyball (Casual)</option><option value="3.98">Volleyball (Vigorous)</option><option value="1.4">Walking (2 mph, 3.2 kmph)</option><option value="1.75">Walking (2.5 mph, 4 kmph)</option><option value="2">Walking (3 mph, 4.8 kmph)</option><option value="2.3">Walking (3.5 mph, 5.6 kmph)</option><option value="2.67">Walking (4 mph, 6.5 kmph)</option><option value="3.1">Walking (4.5 mph, 7.2 kmph)</option><option value="1.0">Waxing Car</option><option value="3.2">Weight Training (Intense)</option><option value="2.35">Weight Training (Normal)</option><option value="3.4">Yardwork (Heavy)</option><option value="1.6">Yardwork (Regular)</option></select> 
+ <input class="Time" onchange="alltime(this.form)" id="time8" name="Time" type="text" /><select name="TimeUnit"><option value="60">Time</option></select>
+ <input onclick="calc(this.form);garcals()" type="button" value="Calculate" /><input name="Reset" type="reset" value="Reset" /> 
+<div class="rowDataCals"> <input class="Calories" name="Calories" type="text" /></div></form>
+   </div>
+  </div>
+  <div class="row CalTotals">
+   <div class="cell">
+<form id="form_9">
+<input name="Weight" class="Weight" type="text" /><select name="WeightUnit"><option value="1">LBS</option></select> 
+ <select name="Activity"><option value="0">Activity</option><option value="2.65">Aerobic Dance (Casual)</option><option value="3">Aerobic Dance (Moderate)</option><option value="3.71">Aerobic Dance (Intense)</option><option value="2.7">Basketball (Full court)</option><option value="1.67">Basketball (Half court)</option><option value="2">Calisthenics</option><option value="7">Boot Camp Calisthenics</option><option value="1.6">Cycling (5.5 mph, 9 kmph)</option><option value="3">Cycling (10 mph, 16 kmph)</option><option value="4.26">Cycling (13 mph, 21 kmph)</option><option value="4.66">Cycling (Racing)</option><option value="2.62">Dancing (Casual)</option><option value="2.84">Dancing (Moderate)</option><option value="3.65">Dancing (Extreme)</option><option value="0.6">Driving</option><option value="3.7">Field Sports (Competitive)</option><option value="2.75">Frisbie</option><option value="2.37">Golf (Carry Clubs)</option><option value="2">Golf (with Cart)</option><option value="1.96">Gymnastics</option><option value="1.7">Housework</option><option value="4.6">Jump Rope (Fast)</option><option value="3.7">Jump Rope (Slow)</option><option value="0.6">Lying</option><option value="5.35">Martial Arts</option><option value="4.88">Racquetball</option><option value="3.6">Rollerblading (Casual)</option><option value="4.25">Rollerblading (Fast)</option><option value="4.91">Rowing Machine (Extreme)</option><option value="3.27">Rowing Machine (Moderate)</option><option value="2.92">Running (4 mph, 6.5 kmph)</option><option value="3.62">Running (5 mph, 8 kmph)</option><option value="4.8">Running (6 mph, 9.7 kmph)</option><option value="5.4">Running (7 mph, 11.3 kmph)</option><option value="6.3">Running (8 mph, 13 kmph)</option><option value="7.5">Running (10 mph, 16 kmph)</option><option value="7.9">Running (12 mph, 19.3 kmph)</option><option value="0.76">Sitting (Office work)</option><option value="0.6">Sitting (Quietly)</option><option value="0.3">Sleeping</option><option value="1.91">Softball</option><option value="3.71">Stair Step (6", 15.2 cm)</option><option value="4.09">Stair Step (8", 20.3 cm)</option><option value="4.42">Stair Step (10", 25.4 cm)</option><option value="4.91">Stair Step (12", 30.5 cm)</option><option value="0.98">Standing (Office work)</option><option value="0.76">Standing (Quietly)</option><option value="3">Swimming (Casual)</option><option value="10">Swimming (Vigorous)</option><option value="2.56">Tennis (Doubles)</option><option value="3">Tennis (Singles)</option><option value="1.39">Volleyball (Casual)</option><option value="3.98">Volleyball (Vigorous)</option><option value="1.4">Walking (2 mph, 3.2 kmph)</option><option value="1.75">Walking (2.5 mph, 4 kmph)</option><option value="2">Walking (3 mph, 4.8 kmph)</option><option value="2.3">Walking (3.5 mph, 5.6 kmph)</option><option value="2.67">Walking (4 mph, 6.5 kmph)</option><option value="3.1">Walking (4.5 mph, 7.2 kmph)</option><option value="1.0">Waxing Car</option><option value="3.2">Weight Training (Intense)</option><option value="2.35">Weight Training (Normal)</option><option value="3.4">Yardwork (Heavy)</option><option value="1.6">Yardwork (Regular)</option></select> 
+ <input class="Time" onchange="alltime(this.form)" id="time9" name="Time" type="text" /><select name="TimeUnit"><option value="60">Time</option></select>
+<input onclick="calc(this.form);garcals()" type="button" value="Calculate" /><input name="Reset" type="reset" value="Reset" /> 
+<div class="rowDataCals"> <input class="Calories" name="Calories" type="text" /></div></form>
+   </div>
+  </div>
+  <div class="row CalTotals">
+   <div class="cell">
+<form id="form_10">
+<input name="Weight" class="Weight" type="text" /><select name="WeightUnit"><option value="1">LBS</option></select> 
+ <select name="Activity"><option value="0">Activity</option><option value="2.65">Aerobic Dance (Casual)</option><option value="3">Aerobic Dance (Moderate)</option><option value="3.71">Aerobic Dance (Intense)</option><option value="2.7">Basketball (Full court)</option><option value="1.67">Basketball (Half court)</option><option value="2">Calisthenics</option><option value="7">Boot Camp Calisthenics</option><option value="1.6">Cycling (5.5 mph, 9 kmph)</option><option value="3">Cycling (10 mph, 16 kmph)</option><option value="4.26">Cycling (13 mph, 21 kmph)</option><option value="4.66">Cycling (Racing)</option><option value="2.62">Dancing (Casual)</option><option value="2.84">Dancing (Moderate)</option><option value="3.65">Dancing (Extreme)</option><option value="0.6">Driving</option><option value="3.7">Field Sports (Competitive)</option><option value="2.75">Frisbie</option><option value="2.37">Golf (Carry Clubs)</option><option value="2">Golf (with Cart)</option><option value="1.96">Gymnastics</option><option value="1.7">Housework</option><option value="4.6">Jump Rope (Fast)</option><option value="3.7">Jump Rope (Slow)</option><option value="0.6">Lying</option><option value="5.35">Martial Arts</option><option value="4.88">Racquetball</option><option value="3.6">Rollerblading (Casual)</option><option value="4.25">Rollerblading (Fast)</option><option value="4.91">Rowing Machine (Extreme)</option><option value="3.27">Rowing Machine (Moderate)</option><option value="2.92">Running (4 mph, 6.5 kmph)</option><option value="3.62">Running (5 mph, 8 kmph)</option><option value="4.8">Running (6 mph, 9.7 kmph)</option><option value="5.4">Running (7 mph, 11.3 kmph)</option><option value="6.3">Running (8 mph, 13 kmph)</option><option value="7.5">Running (10 mph, 16 kmph)</option><option value="7.9">Running (12 mph, 19.3 kmph)</option><option value="0.76">Sitting (Office work)</option><option value="0.6">Sitting (Quietly)</option><option value="0.3">Sleeping</option><option value="1.91">Softball</option><option value="3.71">Stair Step (6", 15.2 cm)</option><option value="4.09">Stair Step (8", 20.3 cm)</option><option value="4.42">Stair Step (10", 25.4 cm)</option><option value="4.91">Stair Step (12", 30.5 cm)</option><option value="0.98">Standing (Office work)</option><option value="0.76">Standing (Quietly)</option><option value="3">Swimming (Casual)</option><option value="10">Swimming (Vigorous)</option><option value="2.56">Tennis (Doubles)</option><option value="3">Tennis (Singles)</option><option value="1.39">Volleyball (Casual)</option><option value="3.98">Volleyball (Vigorous)</option><option value="1.4">Walking (2 mph, 3.2 kmph)</option><option value="1.75">Walking (2.5 mph, 4 kmph)</option><option value="2">Walking (3 mph, 4.8 kmph)</option><option value="2.3">Walking (3.5 mph, 5.6 kmph)</option><option value="2.67">Walking (4 mph, 6.5 kmph)</option><option value="3.1">Walking (4.5 mph, 7.2 kmph)</option><option value="1.0">Waxing Car</option><option value="3.2">Weight Training (Intense)</option><option value="2.35">Weight Training (Normal)</option><option value="3.4">Yardwork (Heavy)</option><option value="1.6">Yardwork (Regular)</option></select> 
+ <input class="Time" onchange="alltime(this.form)" type="text" id="time10" name="Time" /><select name="TimeUnit"><option value="60">Time</option></select> 
+ <input onclick="calc(this.form);garcals()" type="button" value="Calculate" /><input name="Reset" type="reset" value="Reset" /> 
+<div class="rowDataCals"> <input class="Calories" name="Calories" type="text" /></div></form>
+   </div>
+  </div>
+  <div class="row CalTotals">
+   <div class="cell">
+<form id="form_11">
+<input name="Weight" class="Weight" type="text" /><select name="WeightUnit"><option value="1">LBS</option></select> 
+ <select name="Activity"><option value="0">Activity</option><option value="2.65">Aerobic Dance (Casual)</option><option value="3">Aerobic Dance (Moderate)</option><option value="3.71">Aerobic Dance (Intense)</option><option value="2.7">Basketball (Full court)</option><option value="1.67">Basketball (Half court)</option><option value="2">Calisthenics</option><option value="7">Boot Camp Calisthenics</option><option value="1.6">Cycling (5.5 mph, 9 kmph)</option><option value="3">Cycling (10 mph, 16 kmph)</option><option value="4.26">Cycling (13 mph, 21 kmph)</option><option value="4.66">Cycling (Racing)</option><option value="2.62">Dancing (Casual)</option><option value="2.84">Dancing (Moderate)</option><option value="3.65">Dancing (Extreme)</option><option value="0.6">Driving</option><option value="3.7">Field Sports (Competitive)</option><option value="2.75">Frisbie</option><option value="2.37">Golf (Carry Clubs)</option><option value="2">Golf (with Cart)</option><option value="1.96">Gymnastics</option><option value="1.7">Housework</option><option value="4.6">Jump Rope (Fast)</option><option value="3.7">Jump Rope (Slow)</option><option value="0.6">Lying</option><option value="5.35">Martial Arts</option><option value="4.88">Racquetball</option><option value="3.6">Rollerblading (Casual)</option><option value="4.25">Rollerblading (Fast)</option><option value="4.91">Rowing Machine (Extreme)</option><option value="3.27">Rowing Machine (Moderate)</option><option value="2.92">Running (4 mph, 6.5 kmph)</option><option value="3.62">Running (5 mph, 8 kmph)</option><option value="4.8">Running (6 mph, 9.7 kmph)</option><option value="5.4">Running (7 mph, 11.3 kmph)</option><option value="6.3">Running (8 mph, 13 kmph)</option><option value="7.5">Running (10 mph, 16 kmph)</option><option value="7.9">Running (12 mph, 19.3 kmph)</option><option value="0.76">Sitting (Office work)</option><option value="0.6">Sitting (Quietly)</option><option value="0.3">Sleeping</option><option value="1.91">Softball</option><option value="3.71">Stair Step (6", 15.2 cm)</option><option value="4.09">Stair Step (8", 20.3 cm)</option><option value="4.42">Stair Step (10", 25.4 cm)</option><option value="4.91">Stair Step (12", 30.5 cm)</option><option value="0.98">Standing (Office work)</option><option value="0.76">Standing (Quietly)</option><option value="3">Swimming (Casual)</option><option value="10">Swimming (Vigorous)</option><option value="2.56">Tennis (Doubles)</option><option value="3">Tennis (Singles)</option><option value="1.39">Volleyball (Casual)</option><option value="3.98">Volleyball (Vigorous)</option><option value="1.4">Walking (2 mph, 3.2 kmph)</option><option value="1.75">Walking (2.5 mph, 4 kmph)</option><option value="2">Walking (3 mph, 4.8 kmph)</option><option value="2.3">Walking (3.5 mph, 5.6 kmph)</option><option value="2.67">Walking (4 mph, 6.5 kmph)</option><option value="3.1">Walking (4.5 mph, 7.2 kmph)</option><option value="1.0">Waxing Car</option><option value="3.2">Weight Training (Intense)</option><option value="2.35">Weight Training (Normal)</option><option value="3.4">Yardwork (Heavy)</option><option value="1.6">Yardwork (Regular)</option></select> 
+ <input class="Time" onchange="alltime(this.form)" id="time11" name="Time" type="text" /><select name="TimeUnit"><option value="60">Time</option></select>
+ <input onclick="calc(this.form);garcals()" type="button" value="Calculate" /><input name="Reset" type="reset" value="Reset" /> 
+<div class="rowDataCals"> <input class="Calories" name="Calories" type="text" /></div></form>
+   </div>
+  </div>
+  <div class="row CalTotals">
+   <div class="cell">
+<form id="form_12">
+<input name="Weight" class="Weight" type="text" /><select name="WeightUnit"><option value="1">LBS</option></select> 
+ <select name="Activity"><option value="0">Activity</option><option value="2.65">Aerobic Dance (Casual)</option><option value="3">Aerobic Dance (Moderate)</option><option value="3.71">Aerobic Dance (Intense)</option><option value="2.7">Basketball (Full court)</option><option value="1.67">Basketball (Half court)</option><option value="2">Calisthenics</option><option value="7">Boot Camp Calisthenics</option><option value="1.6">Cycling (5.5 mph, 9 kmph)</option><option value="3">Cycling (10 mph, 16 kmph)</option><option value="4.26">Cycling (13 mph, 21 kmph)</option><option value="4.66">Cycling (Racing)</option><option value="2.62">Dancing (Casual)</option><option value="2.84">Dancing (Moderate)</option><option value="3.65">Dancing (Extreme)</option><option value="0.6">Driving</option><option value="3.7">Field Sports (Competitive)</option><option value="2.75">Frisbie</option><option value="2.37">Golf (Carry Clubs)</option><option value="2">Golf (with Cart)</option><option value="1.96">Gymnastics</option><option value="1.7">Housework</option><option value="4.6">Jump Rope (Fast)</option><option value="3.7">Jump Rope (Slow)</option><option value="0.6">Lying</option><option value="5.35">Martial Arts</option><option value="4.88">Racquetball</option><option value="3.6">Rollerblading (Casual)</option><option value="4.25">Rollerblading (Fast)</option><option value="4.91">Rowing Machine (Extreme)</option><option value="3.27">Rowing Machine (Moderate)</option><option value="2.92">Running (4 mph, 6.5 kmph)</option><option value="3.62">Running (5 mph, 8 kmph)</option><option value="4.8">Running (6 mph, 9.7 kmph)</option><option value="5.4">Running (7 mph, 11.3 kmph)</option><option value="6.3">Running (8 mph, 13 kmph)</option><option value="7.5">Running (10 mph, 16 kmph)</option><option value="7.9">Running (12 mph, 19.3 kmph)</option><option value="0.76">Sitting (Office work)</option><option value="0.6">Sitting (Quietly)</option><option value="0.3">Sleeping</option><option value="1.91">Softball</option><option value="3.71">Stair Step (6", 15.2 cm)</option><option value="4.09">Stair Step (8", 20.3 cm)</option><option value="4.42">Stair Step (10", 25.4 cm)</option><option value="4.91">Stair Step (12", 30.5 cm)</option><option value="0.98">Standing (Office work)</option><option value="0.76">Standing (Quietly)</option><option value="3">Swimming (Casual)</option><option value="10">Swimming (Vigorous)</option><option value="2.56">Tennis (Doubles)</option><option value="3">Tennis (Singles)</option><option value="1.39">Volleyball (Casual)</option><option value="3.98">Volleyball (Vigorous)</option><option value="1.4">Walking (2 mph, 3.2 kmph)</option><option value="1.75">Walking (2.5 mph, 4 kmph)</option><option value="2">Walking (3 mph, 4.8 kmph)</option><option value="2.3">Walking (3.5 mph, 5.6 kmph)</option><option value="2.67">Walking (4 mph, 6.5 kmph)</option><option value="3.1">Walking (4.5 mph, 7.2 kmph)</option><option value="1.0">Waxing Car</option><option value="3.2">Weight Training (Intense)</option><option value="2.35">Weight Training (Normal)</option><option value="3.4">Yardwork (Heavy)</option><option value="1.6">Yardwork (Regular)</option></select> 
+ <input class="Time" onchange="alltime(this.form)" type="text" id="time12" name="Time" /><select name="TimeUnit"><option value="60">Time</option></select> 
+ <input onclick="calc(this.form);garcals()" type="button" value="Calculate" /><input name="Reset" type="reset" value="Reset" /> 
+<div class="rowDataCals"> <input class="Calories" name="Calories" type="text" /></div></form>
+   </div>
+  </div>
+ 
+<!-- end main calculator table, but div goes to bottom -->
+<!-- time calculator  -->
+    <div class="timecalc">
+<form class="Convert">
+  <div class="row">
+   <div class="cell">
+Convert Hours
+   </div>
+   <div class="cell">
+<input name="number1" id="number1" type="text" onChange="garbody(this.form)" /> 
+   </div>
+   	<div class="cell">
+	and / or Minutes
+   </div>
+    <div class="cell">
+<input name="number2" id="number2" type="text" onblur="garbody(this.form)" />
+    </div>
+  </div>
+  <div class="row">
+   <div class="cell">
+<input type="button"  value="Calculate" onclick="gbody()"/> 
+   </div>
+   <div class="cell">
+<input name="Reset" type="reset" value="Clear" />
+    </div>
+   <div class="cell">
+<input  name="garrison" id="garrison" value="" type="text" onFocus="blur()" />
+    </div>
+   <div class="cell">
+Total Minutes
+    </div>
+  </div>
+</form>
+</div>
+  <!-- end time calc -->
+  <!-- begin TotalCounts table -->
+
+  <form>
+ <div class="TotalCounts">  
+  <div class="row Totals">
+   <div class="cell">
+Total Hours of Activity
+   </div>
+   <div class="cell">
+<input id="actime" class="calVal" name="total.value" type="text" />
+   </div>
+  </div>
+  <div class="row">
+   <div class="cell">
+Total Calories Burned
+   </div>
+   <div class="cell">
+<input id="calVal" name="calVal" class="calVal" type="text" />
+   </div>
+  </div>
+  <div class="row Totals">
+   <div class="cell">
+How many Calories did you eat today?
+   </div>
+   <div class="cell">
+<input id="ateCals" class="calVal" name="ateCals" type="text" value="0" />
+   </div>
+  </div>
+  <div class="row Totals">
+   <div class="cell">
+Calories Required for This One 24-hour Day =
+   </div>
+   <div class="cell">
+<input id="reqCals" class="calVal" name="reqCals" type="text" />
+   </div>
+  </div>
+  <div class="row Totals">
+   <div class="cell">
+Calories Over / Under?
+   </div>
+   <div class="cell">
+<input id="calAns" class="calVal" name="calAns" type="text" />
+   </div>
+  </div>
+  <div class="row Totals">
+   <div class="cell">
+<input onclick="caloriesults();overunder()" type="button" value="Calculate" /> (Click after any changes)  <input name="Reset" type="reset" value="Clear" />
+   </div>
+  </div>
+  <div class="row Totals">
+   <div class="cell">
+Not enough Calories = "-" (minus) number.
+   </div>
+  </div>
+  <div class="row Totals">
+   <div class="cell">
+Too many Calories is indicated by only a number.
+   </div>
+  </div>
+  <div class="row Totals">
+   <div class="cell">
+Perfect Calories consumed for the day = "0"
+   </div>
+  </div>
+ </div>
+</form>
+</div>
+</div>
+<script>
+
+function calc(form) {
+    "use strict";
+    var W, T;
+
+    W = form.Weight.value * form.WeightUnit.options[form.WeightUnit.selectedIndex].value;
+    T = form.Time.value / form.TimeUnit.options[form.TimeUnit.selectedIndex].value;
+    form.Calories.value = Math.round(form.Activity.options[form.Activity.selectedIndex].value * W * T);
+
+}	
+//Calculate all Calories
+function garcals(){
+    var arr = document.getElementsByName('Calories');
+    var total = 0;
+    for(var i = 0; i < arr.length; i++){
+		if(parseInt(arr[i].value))
+			total += parseInt(arr[i].value);
+	}
+    document.getElementById('calVal').value = total;
+}
+
+//calculation for final 3 steps - calories required; calories consumed; over / under
+function caloriesults(){
+	var calVal = document.getElementById('calVal');
+	var caltot = parseInt(calVal.value) - 750;
+    document.getElementById('reqCals').value = caltot;	
+}
+function overunder(){
+	var ateCals = document.getElementById('ateCals');
+	var reqCals = document.getElementById('reqCals');
+    var unov = parseInt(ateCals.value) - (reqCals.value);
+    document.getElementById('calAns').value = unov;	
+}
+
+//Get time from each input and total in actime
+function alltime(){
+    var arr = document.getElementsByName('Time');
+    var tot=0;
+    for(var i=0;i<arr.length;i++){
+        if(parseInt(arr[i].value))
+            tot += (15*Math.round(parseInt(arr[i].value) / 15) / 60);
+    }
+    document.getElementById('actime').value = tot;
+}
+
+
+//Time to minutes calculator - works great
+function gbody(){
+   var num1 = document.getElementById("number1").value*60;
+   var num2 = document.getElementById("number2").value;
+   var answer  = (+num1 + +num2);
+   document.getElementById("garrison").value = answer;
+}  
+ 
+</script>
+</body>
+</html>
